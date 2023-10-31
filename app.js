@@ -1,5 +1,6 @@
 const express = require("express");
 const mssql = require("mssql");
+const cors = require("cors");
 const app = express();
 require("dotenv").config();
 
@@ -13,6 +14,8 @@ const dbConfig = {
     trustServerCertificate: true,
   }
 }
+
+app.use(cors());
 
 app.get("/api", async (req, res) => {
   try {
